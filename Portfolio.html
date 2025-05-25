@@ -1,0 +1,467 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Fazil - Professional Portfolio</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --accent: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 10px 0 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            padding: 15px 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 15px auto 0;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .experience-item:last-child, .education-item:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title, .degree {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .company, .institution {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin: 5px 0 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            margin: 0 0 10px;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .declaration {
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Replace with your actual image -->
+            <img src="https://via.placeholder.com/150" alt="Mohamed Fazil" class="profile-img">
+            <h1>Mohamed Fazil</h1>
+            <p class="tagline">Asst Fabrication Manager | Store Manager | Warehouse Supervisor</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+971-567435613</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉</span>
+                    <span>mdfazil1994@outlook.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Deira, Dubai</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2>Professional Overview</h2>
+            <p>Experienced professional with a Bachelor's degree in Engineering and expertise in fabrication plant management, store operations, and warehouse supervision. Adept at production planning, inventory management, and team leadership. Skilled in database management, logistics control, and advanced Excel automation.</p>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Asst Manager (Fabrication Plant)</h3>
+                <div class="company">National Group of Engineering, Bangalore, India</div>
+                <div class="date">Jul 2021 – Oct 2024</div>
+                <ul>
+                    <li>Managed fabrication operations, ensuring production targets and quality standards</li>
+                    <li>Optimized resource allocation, reducing material waste by 15%</li>
+                    <li>Conducted safety audits, achieving zero workplace accidents for 3 consecutive years</li>
+                    <li>Assisted in planning and scheduling fabrication projects with efficient workflow management</li>
+                    <li>Monitored and controlled fabrication costs, identifying areas for improvement</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Store Manager (Lift Brackets)</h3>
+                <div class="company">National Group of Engineering, Chennai, India</div>
+                <div class="date">Oct 2019 – Jun 2021</div>
+                <ul>
+                    <li>Streamlined inventory management, improving stock accuracy by 20%</li>
+                    <li>Led a team of 10+ employees, enhancing productivity through training programs</li>
+                    <li>Reduced stock loss by implementing loss prevention strategies</li>
+                    <li>Managed store budgets and prepared performance analysis reports</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">Supervisor (Fabrication Plant & Scaffolding)</h3>
+                <div class="company">National Group of Engineering, Bangalore, India</div>
+                <div class="date">Jun 2017 – Sep 2019</div>
+                <ul>
+                    <li>Oversaw scaffolding operations, ensuring 100% compliance with safety regulations</li>
+                    <li>Improved production scheduling, reducing delays by 10%</li>
+                    <li>Conducted quality inspections and implemented corrective actions</li>
+                    <li>Coordinated loading/unloading operations and inventory management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Competencies</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Production Planning & Management</li>
+                        <li>Inventory & Store Management</li>
+                        <li>Logistics & Supply Chain Control</li>
+                        <li>Advanced Excel (Power Query, Automation)</li>
+                        <li>Basic Power BI & Data Analysis</li>
+                        <li>Quality Control & Safety Compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Leadership & Team Motivation</li>
+                        <li>Problem-Solving & Decision-Making</li>
+                        <li>Time Management & Multitasking</li>
+                        <li>Strong Communication</li>
+                        <li>Adaptability & Stress Management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Software Proficiency</h3>
+                    <ul>
+                        <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                        <li>Oracle SQL | TestRail</li>
+                        <li>Java Selenium (Automation Testing)</li>
+                        <li>Basic Networking & IT Troubleshooting</li>
+                        <li>Power BI (Basics)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            
+            <div class="education-item">
+                <h3 class="degree">Bachelor's in Electronics & Instrumentation Engineering</h3>
+                <div class="institution">Jayaram College of Engineering & Technology, Anna University, Trichy, India</div>
+                <div class="date">Jun 2016</div>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="degree">Software Testing Certification</h3>
+                <div class="institution">Q-Spider Training Institute, Bangalore, India</div>
+                <div class="date">Mar 2024</div>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="degree">Higher Secondary School</h3>
+                <div class="institution">Masood Thaika Hr. Sec. School, Kadayanallur, India</div>
+                <div class="date">Mar 2012</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2>Key Projects & Achievements</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">📉</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cost Reduction Initiative</h3>
+                        <p>Saved $50K/year by optimizing material procurement processes and reducing waste in fabrication operations through better inventory tracking.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🛡</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Safety Compliance Program</h3>
+                        <p>Implemented comprehensive safety protocols and regular audits that resulted in zero workplace accidents for 3 consecutive years.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Inventory Automation System</h3>
+                        <p>Developed Excel-based tracking system that reduced manual errors by 25% and improved stock visibility across departments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out for professional inquiries or opportunities:</p>
+            
+            <div class="contact-info" style="justify-content: center; margin-top: 30px;">
+                <div class="contact-item" style="margin: 0 15px;">
+                    <span>📞</span>
+                    <span>+971-567435613</span>
+                </div>
+                <div class="contact-item" style="margin: 0 15px;">
+                    <span>✉</span>
+                    <span>mdfazil1994@outlook.com</span>
+                </div>
+                <div class="contact-item" style="margin: 0 15px;">
+                    <span>🔗</span>
+                    <span>linkedIn-Mdfazil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="declaration">
+                "I hereby declare that the information contained herein is true and correct to the best of my knowledge and belief."
+            </div>
+            <p style="margin-top: 20px;">© 2024 Mohamed Fazil. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
